@@ -1,0 +1,69 @@
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\BLL.dll
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\BLL.pdb
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\AutoMapper.dll
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\DAL.dll
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\System.ValueTuple.dll
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\DAL.pdb
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\DAL.dll.config
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\AutoMapper.pdb
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\AutoMapper.xml
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\System.ValueTuple.xml
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\admin\Desktop\c#\1\test2212\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\c#\1\test2212\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\admin\Desktop\c#\1\test2212\BLL\obj\Debug\BLL.dll
+C:\Users\admin\Desktop\c#\1\test2212\BLL\obj\Debug\BLL.pdb
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\Ninject.dll
+C:\Users\admin\Desktop\c#\1\test2212\BLL\bin\Debug\Ninject.xml
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\BLL.dll
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\BLL.pdb
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\AutoMapper.dll
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\DAL.dll
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\Ninject.dll
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\System.ValueTuple.dll
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\DAL.pdb
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\DAL.dll.config
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\AutoMapper.pdb
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\AutoMapper.xml
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\Ninject.xml
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\System.ValueTuple.xml
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\bin\Debug\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\obj\Debug\BLL.dll
+C:\Users\admin\Desktop\c#\1\test2212_v3\BLL\obj\Debug\BLL.pdb
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\BLL.dll
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\BLL.pdb
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\AutoMapper.dll
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\DAL.dll
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\Ninject.dll
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\System.ValueTuple.dll
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\DAL.pdb
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\DAL.dll.config
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\AutoMapper.pdb
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\AutoMapper.xml
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\Ninject.xml
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\System.ValueTuple.xml
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\bin\Debug\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\obj\Debug\BLL.dll
+C:\Users\admin\Desktop\c#\1\test2212_v4 — work 010120\BLL\obj\Debug\BLL.pdb
