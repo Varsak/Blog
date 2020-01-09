@@ -19,10 +19,11 @@ namespace DAL.Models
         }
         public virtual ICollection<Article> Articles { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        
         public ApplicationUser()
         {
             Articles = new List<Article>();
-            //Articles = new List<Article>();
+            Comments = new List<Comment>();
         }
     }
 }

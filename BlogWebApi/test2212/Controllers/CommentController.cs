@@ -8,9 +8,14 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace test2212.Controllers
-{
+{    /// <summary>
+     /// Categories controller.
+     /// </summary>
+    //[Route("api/[controller]")]
+    //[ApiController]
     public class CommentController : ApiController
     {
+
         private ICommentService _commentService;
         public CommentController(ICommentService serv)
         {
@@ -24,9 +29,22 @@ namespace test2212.Controllers
         }
 
         //GET: api/Comment/5
-        public CommentDTO Get(int id)
+        //public CommentDTO Get(int id)
+        //{
+        //    CommentDTO item = _commentService.GetComment(id);
+        //    return item;
+        //}
+
+        /// <summary>
+        /// Get comments by article id.
+        /// </summary>
+        /// <param name="id">Article ID.</param>
+        /// <returns>200 - comment found.</returns>
+        //[HttpGet("api/comment/{id}/lots")]
+        //GET: api/Comment/5/lots
+        public IEnumerable<CommentDTO> GetArtComments(int id)
         {
-            CommentDTO item = _commentService.GetComment(id);
+            IEnumerable<CommentDTO> item = _commentService.GetArtComments(id);
             return item;
         }
 

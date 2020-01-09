@@ -23,6 +23,12 @@ namespace BLL.Services
         {
             return Mapper.Map<Comment, CommentDTO>(_uow.Comments.Get(id));
         }
+
+        public IEnumerable<CommentDTO> GetArtComments(int id)
+        {
+            return Mapper.Map<IEnumerable<Comment>, IEnumerable<CommentDTO>>(_uow.Comments.Find(x => x.ArticleId.Equals(id)));
+        }
+
         public IEnumerable<CommentDTO> GetComments()
         {
             return Mapper.Map<IEnumerable<Comment>, IEnumerable<CommentDTO>>(_uow.Comments.GetAll());

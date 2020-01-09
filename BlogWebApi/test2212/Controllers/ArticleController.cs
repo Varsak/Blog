@@ -31,8 +31,7 @@ namespace test2212.Controllers
         //GET: api/Article/5
         public ArticleDTO Get(int id)
         {
-            ArticleDTO lot = _articleService.GetArticle(id);
-            return lot;
+            return _articleService.GetArticle(id); ;
         }
 
         // POST: api/Article

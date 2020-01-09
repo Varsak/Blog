@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace test2212.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values

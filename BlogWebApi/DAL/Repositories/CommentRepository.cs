@@ -39,11 +39,10 @@ namespace DAL.Repositories
             db.Entry(comment).State = EntityState.Modified;
         }
 
-        //public IEnumerable<Article> Find(Func<Article, Boolean> predicate)
-        //{
-        //return db.Phones.Where(predicate).ToList();
-        //}
-
+        public IEnumerable<Comment> Find(Func<Comment, bool> predicate)
+        {
+            return db.Comments.Where(predicate).ToList();
+        }
         public void Delete(int id)
         {
             Comment comment = db.Comments.Find(id);

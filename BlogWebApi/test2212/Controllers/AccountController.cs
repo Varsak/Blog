@@ -54,14 +54,18 @@ namespace test2212.Controllers
 
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        //[Authorize(Roles = "Admin")]
         [Route("UserInfo")]
         public UserInfoViewModel GetUserInfo()
         {
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
 
             return new UserInfoViewModel
-            {
+            {   //Role2= UserManager.GetRoles(),
+                Role= User.IsInRole("Admin"),
+                Id = User.Identity.GetUserId(),
                 Email = User.Identity.GetUserName(),
+                UserName = User.Identity.GetUserName(),
                 HasRegistered = externalLogin == null,
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
@@ -329,9 +333,14 @@ namespace test2212.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email};
+            //var role = new IdentitRoleyUserRole(model, role);
+            //var v = RoleManager. <role>(model);
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            UserManager.AddToRole(user.Id, "Reader");
+            //if (roles[2] != null)
+            //UserManager.AddToRole(user.Id, roles[2]);
 
             if (!result.Succeeded)
             {

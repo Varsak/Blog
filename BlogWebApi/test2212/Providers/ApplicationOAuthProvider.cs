@@ -45,10 +45,25 @@ namespace test2212.Providers
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
-            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
+            Dictionary<string, string> dic = new Dictionary<string, string>
+            {{ "sss", "sss" }, {"sssss", "ssss" } };
+
+            var additionalData = new AuthenticationProperties(new Dictionary<string, string>
+            {
+                { "role", Newtonsoft.Json.JsonConvert.SerializeObject(userManager.GetRoles(user.Id)) },
+                { "userName", Newtonsoft.Json.JsonConvert.SerializeObject(userManager.GetEmail(user.Id)) },
+                { "userId", Newtonsoft.Json.JsonConvert.SerializeObject(user.Id)}
+
+            });
+            //AuthenticationProperties properties = CreateProperties(user.UserName, additionalData);
+            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, additionalData);
+
+            //var token = new AuthenticationTicket(identity, additionalData);
+            //context.Validated(token);
+
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
+
         }
 
         public override Task TokenEndpoint(OAuthTokenEndpointContext context)
