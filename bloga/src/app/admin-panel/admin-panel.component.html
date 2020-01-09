@@ -1,0 +1,54 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">
+            <i class="material-icons">cloud</i>Blog App</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li *ngIf="userService.roleMatch(['Admin'])">
+
+                <a routerLink="/home">Begining</a>
+            </li>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li *ngIf="userService.roleMatch(['Admin'])">
+
+                <a routerLink="/adminPanel">Admin Panel</a>
+            </li>
+            <li>
+                <a (click)="Logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="row" *ngIf="userClaims">
+    <div class="col s12 m7">
+        <div class="card">
+            <div class="card-content">
+                <span>UserName :{{userClaims.UserName}}</span>
+                <br>
+                <span>Email : {{userClaims.Email}}</span>
+                <br>
+                <span>Id : {{userClaims.Id}}</span>
+                <br>
+                <span>Role Admin : {{userClaims.Role}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<form #FindUserById="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(UserId.value)">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">brush</i>
+        <input type="text" #UserId ngModel name="UserId" placeholder="Put User Name" required>
+        
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+          <button [disabled]="!FindUserById.valid" class="btn-large btn-submit" type="submit">Find User</button>
+        </div>
+    </div>
+</form>

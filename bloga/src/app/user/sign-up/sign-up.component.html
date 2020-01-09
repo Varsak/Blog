@@ -1,31 +1,53 @@
+<div *ngIf="isLoginError" class="red-text center error-message">
+    <i class="material-icons">error</i> Incorrect username or password
+</div>
 
-            <form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
-                <div class="row">  
-                    
-                    <!-- <div class="input-field col s6"> 
-                        <input class="validate" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
-                        <label data-error="Required field!">UserName</label>
-                    </div>        -->
-                    <div class="input-field col s6"> 
-                        <input class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email" [pattern]="emailPattern" required>
-                        <label data-error="Invalid email!">Email</label>
-                    </div> 
-                    
-                    <div class="input-field col s6"> 
-                        <!-- <i class="material-icons pferfix">vpn_key</i> -->
-                        <input class="validate" type="password" name="Password" #Password="ngModel"[(ngModel)]="user.Password" required minlength="4">
-                        <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 4 characters needed'):''">Password</label>
-                    </div>       
-                    <div class="input-field col s6"> 
-                        <input class="validate" type="password" name="ConfirmPassword" #ConfirmPassword="ngModel"[(ngModel)]="user.ConfirmPassword" required minlength="4">
-                        <label>ConfirmPassword</label>
-                    </div>       
-      
-                </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit </button>
-                        </div>
-                  </div>
-            </form>
- 
+<form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+    <div class="row">
+        <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email"
+                [pattern]="emailPattern" required>
+            <label data-error="Invalid email!">Email</label>
+        </div>
+
+        <div class="input-field col s6">
+            <!-- <i class="material-icons pferfix">vpn_key</i> -->
+            <i class="material-icons prefix">vpn_key</i>
+            <input class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password"
+                required minlength="6">
+            <label
+                [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 6 characters needed'):''">Password</label>
+        </div>
+        <div class="input-field col s6">
+            <i class="material-icons prefix">vpn_key</i>
+            <input class="validate" type="password" name="ConfirmPassword" #ConfirmPassword="ngModel"
+                [(ngModel)]="user.ConfirmPassword" required minlength="6">
+            <label>ConfirmPassword</label>
+        </div>
+
+    </div>
+
+    <!-- <div class="row" *ngIf="roles">
+        <ul>
+          <li *ngFor="let item of roles;let i = index">
+            <input name="role" type="radio" [id]="'roles-'+i" value="{{item.Id}}" [checked]="item.selected"  (change)="updateSelectedRoles">
+            <label [for]="'roles-'+i">{{item.Name}}</label>
+          </li>
+        </ul>
+      </div> -->
+
+    <div class="row">
+        <div class="input-field col s12">
+            <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit </button>
+        </div>
+    </div>
+</form>
+<div>
+
+
+    <div class="input-field col s12">
+        <button class="btn-large" (click)="clicked()">Clear Form</button>
+    </div>
+
+</div>

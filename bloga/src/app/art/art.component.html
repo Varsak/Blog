@@ -1,0 +1,75 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center">
+      <i class="material-icons">cloud</i>Blog App</a>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li>
+        <a routerLink="/home">Begining</a>
+      </li>
+    </ul>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li *ngIf="userService.roleMatch(['Admin'])">
+
+        <a routerLink="/adminPanel">Admin Panel</a>
+      </li>
+      <li>
+        <a (click)="Logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="col s6 m5" *ngIf="article">
+  <div class="card">
+    <div class="card-content">
+      <ul>
+        <li>
+          <a>
+            <H4>{{article.PostName}}</H4>
+          </a>
+          <div>
+            <h5> {{article.PostText}}</h5>
+          </div>
+          <div>
+            <h6>Posted on: {{article.Date | date:"dd/MM/yyyy" }}</h6>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="input-field col s12">
+  <button class="btn-large" (click)="clickedGetComments()">Get Comments</button>
+</div>
+
+<div class="col s6" *ngIf="comments">
+  <ul *ngFor="let comment of comments">
+    <div class="card">
+      <div class="card-content">
+        <span>
+          <h5>Comment: {{comment.CommentText}}</h5>
+        </span>
+        <br>
+        <span>
+          Posted on: {{comment.Date | date:"dd/MM/yyyy" }}
+        </span>
+      </div>
+    </div>
+  </ul>
+</div>
+
+<form class="col s12 white" #addCommentForm="ngForm" (ngSubmit)="OnSubmit(newComment.value)">
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">brush</i>
+      <input type="text" #newComment ngModel name="newComment" placeholder="New Comment" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button [disabled]="!addCommentForm.valid" class="btn-large btn-submit" type="submit">Add new Comment</button>
+    </div>
+  </div>
+</form>

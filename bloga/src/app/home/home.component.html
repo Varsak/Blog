@@ -1,26 +1,35 @@
 <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">
-        <i class="material-icons">cloud</i>Blog App</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          <a (click)="Logout()">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="row" *ngIf="userClaims">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-content">
-          <span>HasRegistered :{{userClaims.PostName}}</span>
-          <br>
-          <span>Email : {{userClaims.PostText}}</span>
-          <br>
-          <!-- <span>Full Name : {{userClaims.FirstName}} {{userClaims.LastName}}</span>
-          <br>
-          <span>Logged On : {{userClaims.LoggedOn}}</span> -->
-        </div>
-      </div>
-    </div>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center">
+      <i class="material-icons">cloud</i>Blog App</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li *ngIf="userService.roleMatch(['Admin'])">
+        <a routerLink="/adminPanel">Admin Panel</a>
+      </li>
+      <li>
+        <a (click)="Logout()">Logout</a>
+      </li>
+    </ul>
   </div>
+</nav>
+
+<div class="input-field col s12">
+  <button class="btn-large" (click)="clicked()">Get All Posts</button>
+</div>
+<div class="input-field col s12">
+  <button class="btn-large" (click)="clickedAddNewPost()">Add New Post</button>
+</div>
+
+
+<div class="row" *ngIf="articles">
+  <h5>Please, choose Post</h5>
+  <ul *ngFor="let article of articles">
+    <li>
+      <a href="#" (click)="$event.preventDefault(); navigateToArt(article.Id)">
+        Post Name: {{article.PostName}}
+        Posted on: {{article.Date | date:"dd/MM/yyyy" }}
+      </a>
+    </li>
+  </ul>
+</div>
+
