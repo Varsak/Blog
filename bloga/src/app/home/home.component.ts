@@ -45,5 +45,6 @@ export class HomeComponent implements OnInit {
   }
   clickedAddNewPost(){
     this.router.navigate(['/newarticle']);
+    
   }
 }

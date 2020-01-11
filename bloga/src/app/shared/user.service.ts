@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import { User } from './user.model';
 import { Article } from '../models/article.model';
 import { Comment } from '../models/comment.model';
+import { UserInfo } from '../models/userinfo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import { Comment } from '../models/comment.model';
 export class UserService {
 readonly rootUrl = 'https://localhost:44380/';
 data :any;
+
 private _headers: HttpHeaders = new HttpHeaders({ 'Authorization': 'Bearer EMcs_9wJk7No-PmHyDmDyJBnnNqWJglLcNER' });
 
 constructor(private http: HttpClient) { }
@@ -20,15 +22,12 @@ constructor(private http: HttpClient) { }
   {
     const body = 
     {
-      
       Email: user.Email,
       Password: user.Password,
       ConfirmPassword: user.ConfirmPassword,
-      
     }
     var reqHeader =new HttpHeaders({'No-Auth':'True'});
     return this.http.post(this.rootUrl + '/api/Account/Register', body, {headers:reqHeader});
-    
   }
 
 
@@ -42,12 +41,12 @@ constructor(private http: HttpClient) { }
 
   getUserClaims(){
   return this.http.get(this.rootUrl+'api/Account/UserInfo');
-  // ,{headers : new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('userToken')})});
   }
 
-  getAllArticles(): Observable<Article[]> {
-      return this.http.get<Article[]>(this.rootUrl + 'api/article')
-  }
+  getAllUsersInfo(): Observable<UserInfo[]>{
+    return this.http.get<UserInfo[]>(this.rootUrl+'api/Account/AllUsersInfo');
+    }
+
 
   getAllRoles() {
     var reqHeader = new HttpHeaders({ 'No-Auth': 'True' });
@@ -66,10 +65,15 @@ constructor(private http: HttpClient) { }
     return isMatch;
 
   }
-  getArticle(id : number): Observable<Article> {
-    return this.http.get<Article>(this.rootUrl + 'api/article/'+id)
+
+  deleteUser(userEmail : string ){
+    var reqHeader = new HttpHeaders( "Access-Control-Allow-Methods: GET, POST, PUT, DELETE" );
+    // const body = 
+    // {
+    //   Email:userEmail
+    // }
+    //Access-Control-Allow-Methods: GET, POST, PUT;
+    return this.http.delete(this.rootUrl + '/api/Account/Delete/' +userEmail, { headers: reqHeader });
   }
-  getArticleComments(id : number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(this.rootUrl + 'api/comment/'+id)
-  }
+
 }

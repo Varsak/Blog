@@ -45,9 +45,6 @@ namespace test2212.Providers
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            Dictionary<string, string> dic = new Dictionary<string, string>
-            {{ "sss", "sss" }, {"sssss", "ssss" } };
-
             var additionalData = new AuthenticationProperties(new Dictionary<string, string>
             {
                 { "role", Newtonsoft.Json.JsonConvert.SerializeObject(userManager.GetRoles(user.Id)) },
@@ -55,11 +52,8 @@ namespace test2212.Providers
                 { "userId", Newtonsoft.Json.JsonConvert.SerializeObject(user.Id)}
 
             });
-            //AuthenticationProperties properties = CreateProperties(user.UserName, additionalData);
-            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, additionalData);
 
-            //var token = new AuthenticationTicket(identity, additionalData);
-            //context.Validated(token);
+            AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, additionalData);
 
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);

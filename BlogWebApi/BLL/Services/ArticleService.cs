@@ -21,11 +21,7 @@ namespace BLL.Services
             _uow = uow;
         }
         public ArticleDTO GetArticle(int id)
-        { //string userName;
-            //ArticleDTO articleDTO = Mapper.Map<Article, ArticleDTO>(_uow.Articles.Get(id));
-            //string userName = articleDTO.UserId;
-            //string userN= userManager.GetRoles(articleDTO.UserId)
-            //_uow.Articles.Get(id)
+        { 
             return Mapper.Map<Article, ArticleDTO>(_uow.Articles.Get(id));
         }
         public IEnumerable<ArticleDTO> GetArticles()

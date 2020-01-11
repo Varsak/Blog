@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
+import { UserInfo } from '../models/userinfo.model';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.component.html',
@@ -8,8 +10,12 @@ import { UserService } from '../shared/user.service';
 })
 export class AdminPanelComponent implements OnInit {
 userClaims: any;
-UN : string ="a696af8e-ac6d-4db2-8f50-7f35992172d0";
-  constructor(private router: Router, private userService: UserService) { }
+usersInfo: UserInfo[];
+//userInfoId : string;
+
+
+//UN : string ="a696af8e-ac6d-4db2-8f50-7f35992172d0";
+  constructor(private router: Router, private userService: UserService, private toastr : ToastrService) { }
 
   ngOnInit() {
     this.userService.getUserClaims().subscribe((data: any) => {this.userClaims = data;});
@@ -20,8 +26,27 @@ UN : string ="a696af8e-ac6d-4db2-8f50-7f35992172d0";
     this.router.navigate(['/login']);
   }
   
-  OnSubmit(UserName) {
-    this.userService.getUserClaims().subscribe((data: any) => {this.userClaims = data;});
+  // OnSubmit(UserName) {
+  //   this.userService.getUserClaims().subscribe((data: any) => {this.userClaims = data;});
+  // }
+  AllUsersInfo(){
+    this.userService.getAllUsersInfo().subscribe((data: UserInfo[]) => { this.usersInfo = data; })
   }
-  
-}
+
+  DeleteUser(userE: string ){
+    this.userService.deleteUser(userE).subscribe( res =>{
+      
+      this.toastr.success('Comment deleted successful');
+      //this.articleService.getArticleComments(this.artId).subscribe((data: Comment[]) => { this.comments = data; })
+      this.ngOnInit
+  })}
+  }
+
+  // DeleteComment(comId : number){
+  //   this.articleService.deleteComment(comId).subscribe( res =>{
+      
+  //     this.toastr.success('Comment deleted successful');
+  //     this.articleService.getArticleComments(this.artId).subscribe((data: Comment[]) => { this.comments = data; })
+  //     this.ngOnInit
+  // })}
+

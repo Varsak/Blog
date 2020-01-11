@@ -73,7 +73,6 @@ C:\Users\admin\Desktop\c#\blog\test2212_v9\BLL\bin\Debug\AutoMapper.dll
 C:\Users\admin\Desktop\c#\blog\test2212_v9\BLL\bin\Debug\DAL.dll
 C:\Users\admin\Desktop\c#\blog\test2212_v9\BLL\bin\Debug\Ninject.dll
 C:\Users\admin\Desktop\c#\blog\test2212_v9\BLL\bin\Debug\System.ValueTuple.dll
-C:\Users\admin\Desktop\c#\blog\test2212_v9\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\admin\Desktop\c#\blog\test2212_v9\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Users\admin\Desktop\c#\blog\test2212_v9\BLL\bin\Debug\EntityFramework.dll
 C:\Users\admin\Desktop\c#\blog\test2212_v9\BLL\bin\Debug\DAL.pdb

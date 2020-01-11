@@ -22,11 +22,11 @@
 
 
 <div class="row" *ngIf="articles">
-  <h5>Please, choose Post</h5>
+  <h4>Please, choose Post</h4>
   <ul *ngFor="let article of articles">
     <li>
       <a href="#" (click)="$event.preventDefault(); navigateToArt(article.Id)">
-        Post Name: {{article.PostName}}
+        <H5>Post Name: {{article.PostName}}</H5>
         Posted on: {{article.Date | date:"dd/MM/yyyy" }}
       </a>
     </li>

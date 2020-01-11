@@ -14,18 +14,12 @@ export class SignUpComponent implements OnInit {
   user: User;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   isLoginError : boolean =false;
-roles : string;
+  roles : string;
 
   constructor(private userService: UserService, private toastr : ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
-    this.userService.getAllRoles().subscribe(
-      (data : any)=> {
-        data.forEach(obj => obj.selected =false);
-        this.roles=data;
-      }
-    );
   }
   
   resetForm(form? : NgForm)

@@ -36,8 +36,26 @@
     </div>
 </div>
 
+<div class="input-field col s12">
+    <button class="btn-large" (click)="AllUsersInfo()">Get All Users</button>
+  </div>
 
-<form #FindUserById="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(UserId.value)">
+  <div class="row" *ngIf="usersInfo">
+    <h5>Please, choose Post</h5>
+    <ul *ngFor="let userInfo of usersInfo">
+      <li>
+        <a >
+        <!-- href="#" (click)="$event.preventDefault(); navigateToArt(article.Id)"> -->
+            UserName: {{userInfo.UserName}}
+            UserId: {{userInfo.Id }}
+            <button class="btn" (click)="DeleteUser(userInfo.UserName)">Delete this User</button>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+<!-- <form #FindUserById="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(UserId.value)">
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">brush</i>
@@ -51,4 +69,4 @@
           <button [disabled]="!FindUserById.valid" class="btn-large btn-submit" type="submit">Find User</button>
         </div>
     </div>
-</form>
+</form> -->

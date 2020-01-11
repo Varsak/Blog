@@ -17,8 +17,9 @@ export class ArtComponent implements OnInit {
   comments : Comment[];
   private route: ActivatedRoute;
   artId : number;
+  //comId : number;
   newComment : string;
-ttt: string =localStorage.getItem('curUserId');
+  ans : any;
   constructor(private router: Router, private activateRoute: ActivatedRoute, private userService: UserService,
      private articleService : ArticleService, private toastr : ToastrService){
       this.artId = activateRoute.snapshot.params['id'];
@@ -44,6 +45,22 @@ ttt: string =localStorage.getItem('curUserId');
     localStorage.removeItem('userToken');
     this.router.navigate(['/login']);
   }
+  
+  DeleteArticle(){
+    this.articleService.deleteArticle(this.artId).subscribe((data: any) => { this.ans = data; })
+    this.toastr.success('Post deleted successful');
+    this.router.navigate(['/home']);
+  }
+
+  DeleteComment(comId : number){
+    this.articleService.deleteComment(comId).subscribe( res =>{
+      
+    this.toastr.success('Comment deleted successful');
+    this.articleService.getArticleComments(this.artId).subscribe((data: Comment[]) => { this.comments = data; })
+      this.ngOnInit
+      
+  })}
+
   resetForm(form? : NgForm)
   {
     //if(form !=null)

@@ -9,7 +9,12 @@
     </ul>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li *ngIf="userService.roleMatch(['Admin'])">
-
+        <a (click)="DeleteArticle()">Delete this Post</a>
+      </li>
+      <li *ngIf="userService.roleMatch(['Moderator'])">
+        <a (click)="DeleteArticle()">Delete this Post</a>
+      </li>
+      <li *ngIf="userService.roleMatch(['Admin'])">
         <a routerLink="/adminPanel">Admin Panel</a>
       </li>
       <li>
@@ -48,12 +53,18 @@
     <div class="card">
       <div class="card-content">
         <span>
-          <h5>Comment: {{comment.CommentText}}</h5>
+          <h6>Comment: {{comment.CommentText}}</h6>
         </span>
         <br>
         <span>
           Posted on: {{comment.Date | date:"dd/MM/yyyy" }}
         </span>
+        <li *ngIf="userService.roleMatch(['Admin'])">
+          <button class="btn" (click)="DeleteComment(comment.Id)">Delete this comment</button>
+        </li>
+        <li *ngIf="userService.roleMatch(['Moderator'])">
+          <button class="btn" (click)="DeleteComment(comment.Id)">Delete this comment</button>
+        </li>
       </div>
     </div>
   </ul>

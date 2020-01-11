@@ -14,7 +14,7 @@ namespace test2212.Controllers
     {
         [HttpGet]
         [Route("api/GetAllRoles")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public HttpResponseMessage GetAllRoles()
         {
             var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
@@ -23,7 +23,7 @@ namespace test2212.Controllers
             var roles = roleMngr.Roles
                 .Select(x => new { x.Id, x.Name })
                 .ToList();
-            return this.Request.CreateResponse(HttpStatusCode.OK, roles);
+            return Request.CreateResponse(HttpStatusCode.OK, roles);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -8,6 +9,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using DAL.Models;
+using BLL.DTO;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -20,7 +22,7 @@ using test2212.Results;
 
 namespace test2212.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
@@ -54,14 +56,14 @@ namespace test2212.Controllers
 
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [Route("UserInfo")]
         public UserInfoViewModel GetUserInfo()
         {
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
 
             return new UserInfoViewModel
-            {   //Role2= UserManager.GetRoles(),
+            {   
                 Role= User.IsInRole("Admin"),
                 Id = User.Identity.GetUserId(),
                 Email = User.Identity.GetUserName(),
@@ -69,6 +71,22 @@ namespace test2212.Controllers
                 HasRegistered = externalLogin == null,
                 LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
             };
+        }
+
+
+        // GET api/Account/AllUsersInfo
+        [Authorize(Roles = "Admin")]
+        [Route("AllUsersInfo")]
+        public IEnumerable<ApplicationUserDTO> GetAllUsersInfo()
+        {
+            List<ApplicationUserDTO> applicationUserDTOs = new List<ApplicationUserDTO>();
+            var users = UserManager.Users;
+            foreach(ApplicationUser u in users)
+            {
+                ApplicationUserDTO uDTO = new ApplicationUserDTO(u);
+                applicationUserDTOs.Add(uDTO);
+            }
+            return applicationUserDTOs;
         }
 
         // POST api/Account/Logout
@@ -334,19 +352,24 @@ namespace test2212.Controllers
             }
 
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email};
-            //var role = new IdentitRoleyUserRole(model, role);
-            //var v = RoleManager. <role>(model);
-
+            
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
             UserManager.AddToRole(user.Id, "Reader");
-            //if (roles[2] != null)
-            //UserManager.AddToRole(user.Id, roles[2]);
-
+            
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
             }
 
+            return Ok();
+        }
+
+
+        // POST api/Account/Delete
+        [Route("Delete")]
+        public IHttpActionResult Delete(string email)
+        {
+            UserManager.Delete(UserManager.FindByEmail(email));
             return Ok();
         }
 

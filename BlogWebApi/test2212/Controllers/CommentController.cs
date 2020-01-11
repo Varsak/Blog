@@ -8,11 +8,8 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace test2212.Controllers
-{    /// <summary>
-     /// Categories controller.
-     /// </summary>
-    //[Route("api/[controller]")]
-    //[ApiController]
+{
+    [Authorize]
     public class CommentController : ApiController
     {
 
@@ -28,20 +25,11 @@ namespace test2212.Controllers
             return item;
         }
 
-        //GET: api/Comment/5
-        //public CommentDTO Get(int id)
-        //{
-        //    CommentDTO item = _commentService.GetComment(id);
-        //    return item;
-        //}
-
         /// <summary>
         /// Get comments by article id.
         /// </summary>
         /// <param name="id">Article ID.</param>
         /// <returns>200 - comment found.</returns>
-        //[HttpGet("api/comment/{id}/lots")]
-        //GET: api/Comment/5/lots
         public IEnumerable<CommentDTO> GetArtComments(int id)
         {
             IEnumerable<CommentDTO> item = _commentService.GetArtComments(id);
@@ -61,6 +49,7 @@ namespace test2212.Controllers
         }
 
         // DELETE: api/Comment/5
+        [Authorize(Roles = "Admin, Moderator")]
         public void Delete(int id)
         {
             _commentService.Delete(id);

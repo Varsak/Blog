@@ -12,7 +12,7 @@ using test2212.Models;
 
 namespace test2212.Controllers
 {
-
+    [Authorize]
     public class ArticleController : ApiController
     
     {
@@ -24,8 +24,8 @@ namespace test2212.Controllers
         // GET api/Article
         public IEnumerable<ArticleDTO> Get()
         {
-            var lot = _articleService.GetArticles();
-            return lot;
+            var art = _articleService.GetArticles();
+            return art;
         }
         
         //GET: api/Article/5
@@ -47,6 +47,7 @@ namespace test2212.Controllers
         }
 
         // DELETE: api/Article/5
+        [Authorize (Roles ="Admin, Moderator")]
         public void Delete(int id)
         {
             _articleService.Delete(id);

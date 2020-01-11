@@ -13,6 +13,7 @@ namespace DAL.Context
     {
         public ApplicationDbContext(): base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new StoreDbInitializer());
         }
         public DbSet<Article> Articles { get; set; }
         public DbSet<Comment> Comments { get; set; }
@@ -39,6 +40,16 @@ namespace DAL.Context
             //AspNetUserLogins -> UserLogin
             modelBuilder.Entity<IdentityUserLogin>()
                 .ToTable("UserLogin");
+        }
+    }
+    public class StoreDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
+    {
+        protected override void Seed(ApplicationDbContext db)
+        {
+            db.Roles.Add(new IdentityRole { Id = "1", Name = "Admin" }); 
+            db.Roles.Add(new IdentityRole { Id = "2", Name = "Moderator" });
+            db.Roles.Add(new IdentityRole { Id = "3", Name = "Reader" });
+            db.SaveChanges();
         }
     }
 }

@@ -1,33 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { filter, map } from 'rxjs/operators'
 import {Observable} from 'rxjs';
-//import { User } from './user.model';
 import { Article } from '../models/article.model';
 import { Comment } from '../models/comment.model';
 
 @Injectable({
   providedIn: 'root'
 })
-// export class ArticleService {
-
-//   constructor() { }
-// }
-
 
 export class ArticleService {
 readonly rootUrl = 'https://localhost:44380/';
 data :any;
 curDate=new Date();
-//private _headers: HttpHeaders = new HttpHeaders({ 'Authorization': 'Bearer EMcs_9wJk7No-PmHyDmDyJBnnNqWJglLcNER' });
 
 constructor(private http: HttpClient) { }
   
    getAllArticles(): Observable<Article[]> {
       return this.http.get<Article[]>(this.rootUrl + 'api/article')
   }
-
-
 
   getArticle(id : number): Observable<Article> {
     return this.http.get<Article>(this.rootUrl + 'api/article/'+id)
@@ -46,9 +36,7 @@ constructor(private http: HttpClient) { }
       ArticleId: articleId,
       UserId: JSON.parse(localStorage.getItem('curUserId'))
     }
-    var reqHeader =new HttpHeaders({'No-Auth':'True'});
-    return this.http.post(this.rootUrl + '/api/comment', body, {headers:reqHeader});
-    
+    return this.http.post(this.rootUrl + '/api/comment', body);
   }
   
   addNewPost(postName, postText){
@@ -59,18 +47,21 @@ constructor(private http: HttpClient) { }
       Date: this.curDate,
       UserId: JSON.parse(localStorage.getItem('curUserId'))
     }
-    var reqHeader =new HttpHeaders({'No-Auth':'True'});
-    return this.http.post(this.rootUrl + '/api/article', body, {headers:reqHeader});
+    return this.http.post(this.rootUrl + '/api/article', body);
+  }
+  deleteArticle(id : number){
+    return this.http.delete(this.rootUrl + '/api/article/' + id);
   }
 
+  deleteComment(id : number){
+    return this.http.delete(this.rootUrl + '/api/comment/' + id);
+  }
 
 }
 
 
 
 
-
-//curDate=new Date();
 
   // getAllRoles() {
   //   var reqHeader = new HttpHeaders({ 'No-Auth': 'True' });
